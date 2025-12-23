@@ -1,0 +1,46 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;    
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex; /* ¡Esto hace la magia horizontal! */
+    gap : 20px;
+}
+
+.navbar ul a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.5s;
+    display: inline-block;
+    padding: 6px 16px; 
+}
+
+.logo{
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: aliceblue;
+}
+
+.active {
+    background-color: #456C91;       
+    border-radius: 12.5px;      
+}
+
+
+

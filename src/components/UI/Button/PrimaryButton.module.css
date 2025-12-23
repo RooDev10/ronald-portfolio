@@ -1,0 +1,11 @@
+.PrimaryBtn {
+    text-decoration: none; 
+    display: inline-block; /* 2. Para que respete el tamaño */
+    color: white;       
+    padding: 0.8rem 1.5rem; /* 5. Espacio interno (relleno) */
+    border-radius: 20px;
+    font-weight: bold;
+    width: 150px;
+    text-align: center;
+}
+
