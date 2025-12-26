@@ -22,6 +22,7 @@
   width: 120%;
   left: -10%;
   border-radius: 50% 50% 0 0;
+  z-index: 1;
 }
 
 /* Capas */
@@ -47,7 +48,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform: translate(-70px)
+    margin-right: 70px; /*transform: translate(-70px);*/
+    z-index: 2;
 }
 
 .profileImage img {
@@ -90,7 +92,8 @@
 }
 
 .heroHeader {
-    transform: translate(70px);
+    margin-left: 70px;
+    z-index: 2;
 }
 
 .heroHeader h1 {
@@ -134,6 +137,60 @@
     display: flex;
     gap: 2rem;
 }
+
+
+
+
+
+ /*Estados ocultos*/
+.heroHiddenText {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.heroHiddenImage {
+    opacity: 0;
+    transform: scale(0.96);
+}
+
+/*Estados visibles (con destello)*/
+.heroShowText {
+    opacity: 1;
+    transform: translateY(0);
+    animation: textGlow 1.2s ease-out;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 0 rgba(24, 196, 234, 0);
+    }
+    40% {
+        text-shadow: 0 0 20px rgba(24, 196, 234, 0.35);
+    }
+    100% {
+        text-shadow: 0 0 0 rgba(24, 196, 234, 0);
+    }
+}
+
+.heroShowImage {
+    opacity: 1;
+    transform: scale(1);
+    animation: imageGlow 1.4s ease-out;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+@keyframes imageGlow {
+    0% {
+        filter: drop-shadow(0 0 0 rgba(24, 196, 234, 0));
+    }
+    50% {
+        filter: drop-shadow(0 0 25px rgba(24, 196, 234, 0.25));
+    }
+    100% {
+        filter: drop-shadow(0 0 0 rgba(24, 196, 234, 0));
+    }
+}
+
 
 
 

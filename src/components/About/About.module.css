@@ -1,0 +1,70 @@
+.aboutSection {
+    padding: 4rem 0;
+}
+
+.aboutWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.aboutSection h1 {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 3rem;
+}
+
+.aboutContainer {
+    display: flex;
+    align-items: center;
+    gap: 10rem; 
+}
+
+.figureabout img {
+    width: 400px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0px 15px 35px rgba(16, 201, 243, 0.25);
+    border: 2px solid rgba(39, 121, 165, 0.25);
+    object-fit: cover;
+    transform-style: preserve-3d;
+}
+
+.aboutDescription {
+    max-width: 550px;
+    text-align: left;
+}
+
+.aboutDescription p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+
+
+
+
+/* Estados iniciales */
+.hiddenLeft {
+    opacity: 0;
+    transform: translateX(-80px);
+}
+
+.hiddenRight {
+    opacity: 0;
+    transform: translateX(80px);
+    
+}
+
+/* Estados visibles */
+.showLeft,
+.showRight {
+    opacity: 1;
+    transform: translateX(0);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
