@@ -1,5 +1,134 @@
+.skillsSection {
+    padding: 80px 20px;
+    min-height: 80vh;
+    text-align: center;
+}
+
 .skillsSection h1 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     font-size: 3rem;
 }
+
+.skillsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ===============================
+   ESTILO CARD (Premium & Elegante)
+================================ */
+
+.skillCard {
+    width: 280px;
+    min-height: 160px;
+    padding: 30px;
+    border-radius: 16px;
+    position: relative;
+    cursor: pointer;
+    background: linear-gradient(145deg, #1d3449 0%, #295277 100%);
+    border: 1px solid rgba(24, 196, 234, 0.12);
+    backdrop-filter: blur(10px);
+    
+    /* Configuración para el rompecabezas */
+    opacity: 0; 
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), 
+                box-shadow 0.5s ease, 
+                border-color 0.5s ease;
+}
+
+/* Solo se activa cuando el Observer detecta la sección */
+.animate .skillCard {
+    animation: puzzleIn 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Hover sutil y elegante */
+.skillCard:not(:has(.cardDetails)):hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 12px 35px rgba(16, 201, 243, 0.25),
+                0 0 0 1px rgba(0, 0, 0, 0.08) inset;
+}
+
+@keyframes puzzleIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ===============================
+   CONTENIDO Y GRID
+================================ */
+
+.cardContent h3 {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+    color: #f0f9ff;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.miniIcons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    font-size: 1.6rem;
+    margin-top: 15px;
+}
+
+/* Estado ABIERTO - Más sutil */
+.skillCard:has(.cardDetails) {
+    background: linear-gradient(145deg, #1d3449 0%, #295277 100%);
+    border-color: rgba(16, 201, 243, 0.25);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(16, 201, 243, 0.25) inset;
+}
+
+.skillsGrid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skillsGrid li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.78rem;
+    gap: 8px;
+    padding: 12px 8px;
+    border-radius: 10px;
+    background: rgba(24, 196, 234, 0.03);
+    border: 1px solid rgba(24, 196, 234, 0.08);
+    color: #e0f2fe;
+    font-weight: 400;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.skillsGrid li:hover {
+    transform: translateY(-3px);
+    background: rgba(14, 0, 0, 0.08);
+    border-color: rgba(162, 170, 221, 0.2);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.12);
+}
+
+
