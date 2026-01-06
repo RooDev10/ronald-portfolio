@@ -9,7 +9,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* <--- ¡Esta es la clave! */
+  box-sizing: border-box; /* Esta es la clave*/
 }
 body {
   background-color: #1D3750;

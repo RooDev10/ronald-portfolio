@@ -48,7 +48,7 @@ function Skills() {
     "Tailwind CSS": <SiTailwindcss color="#06B6D4" />,
     "C#": <FaCogs color="#178600" />,
     Java: <FaJava color="#9c0a18ff" />,
-    Python: <FaPython color="#3776AB" />,
+    Python: <FaPython color="#54ab37ff" />,
     ".Net": <FaMicrosoft color="#512BD4" />,
     FastApi: <SiFastapi color="#009900" />,
     "Node.js": <FaNodeJs color="#339933" />,
