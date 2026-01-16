@@ -6,10 +6,10 @@ function Navbar() {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const menuItems = [
-        { name: 'Home', link: '#Home' },
-        { name: 'About', link: '#About' },
-        { name: 'Skills', link: '#Skills' },
-        { name: 'Projects', link: '#Projects' },
+        { name: 'Inicio', link: '#Home' },
+        { name: 'Sobre mí', link: '#About' },
+        { name: 'Habilidades', link: '#Skills' },
+        { name: 'Proyectos', link: '#Projects' },
         { name: 'Contacto', link: '#Contacto' }
     ];
 

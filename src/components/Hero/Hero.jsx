@@ -43,7 +43,7 @@ function Hero() {
                 <h3>{profile.rol}</h3>
                 <p>{profile.description}</p>
                 <div className={styles.heroButtons}>
-                    <PrimaryButton text="Contactame" url={profile.git_url} color="#000000ff"/>
+                    <PrimaryButton text="Contáctame" url={profile.whatsapp_url} color="#172A41"/>
                     <PrimaryButton text="CV" url={profile.cv_url} color = "#18C4EA"/>
                 </div>
             </header>

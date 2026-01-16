@@ -126,10 +126,10 @@
 }
 
 .heroHeader p {
-    margin-top: 2rem;
-    line-height: 1.5;
+    margin-top: 1.5rem;
     max-width: 600px;
     color: #CCD7EA;
+    font-size: 1.2rem;
 }
 
 .heroButtons {
