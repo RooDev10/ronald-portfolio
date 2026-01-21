@@ -1,6 +1,7 @@
 .aboutSection {
     padding: 80px 20px;
     min-height: 80vh;
+    overflow: hidden;
 }
 
 .aboutWrapper {
@@ -42,11 +43,6 @@
     color: rgba(255, 255, 255, 0.85);
 }
 
-
-
-
-
-
 /* Estados iniciales */
 .hiddenLeft {
     opacity: 0;
@@ -67,5 +63,46 @@
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (Móviles y Tablets)
+   ========================================= */
+@media (max-width: 900px) { /* Usamos 900px para cubrir tablets verticales también */
+    
+    /* 1. Ajustar el Wrapper para ganar espacio a los lados */
+    .aboutWrapper {
+        padding: 0 1.5rem;
+    }
+
+    /* 2. Cambiar a Columna (Foto arriba, Texto abajo) */
+    .aboutContainer {
+        flex-direction: column; 
+        gap: 3rem; /* Bajamos de 10rem a 3rem para que no estén tan lejos */
+        text-align: center; /* Centramos el texto para que se vea equilibrado */
+    }
+
+    /* 3. Ajustar la Imagen */
+    .figureabout img {
+        width: 280px; /* Un tamaño ideal para móviles */
+        max-width: 100%; /* Evita que se salga si la pantalla es muy pequeña */
+    }
+
+    /* 4. Ajustar la Descripción */
+    .aboutDescription {
+        max-width: 100%; /* Que use todo el ancho disponible */
+        text-align: center; /* Alineación centrada para móvil */
+        padding: 0 10px;
+    }
+    
+    .aboutDescription p {
+        font-size: 1rem; /* Un poco más pequeño para lectura cómoda en móvil */
+    }
+
+    /* 5. Ajustar Título */
+    .aboutSection h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
 }
 

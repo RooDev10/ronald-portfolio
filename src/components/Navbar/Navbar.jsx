@@ -1,9 +1,9 @@
 import styles from './Navbar.module.css';
-import {useState } from "react";
-
+import { useState, useEffect } from "react";
 
 function Navbar() {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [isOpen, setIsOpen] = useState(false);
 
     const menuItems = [
         { name: 'Inicio', link: '#Home' },
@@ -13,25 +13,75 @@ function Navbar() {
         { name: 'Contacto', link: '#Contacto' }
     ];
 
+    useEffect(() => {
+        const sections = menuItems.map(item =>
+            document.querySelector(item.link)
+        );
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const index = sections.indexOf(entry.target);
+                        if (index !== -1) {
+                            setActiveIndex(index);
+                        }
+                    }
+                });
+            },
+            {
+                root: null,
+                rootMargin: "-50% 0px -50% 0px",
+                threshold: 0
+            }
+        );
+
+        sections.forEach(section => {
+            if (section) observer.observe(section);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     return (
-    <nav className={styles.navbar}>
-        <a href="#" className={styles.logo}>RoniDev</a>
+        <nav className={styles.navbar}>
 
-        <ul>
-        {menuItems.map((item, index) => (
-            <li key={index}>
-            <a 
-                href={item.link} 
-                className={`${activeIndex === index ? styles.active : null}`}
-                onClick={() => setActiveIndex(index)}
+            <button
+                className={styles.hamburger}
+                onClick={() => setIsOpen(!isOpen)}
             >
-                {item.name}
+                ☰
+            </button>
+
+            <a
+                href="#Home"
+                className={styles.logo}
+                onClick={() => {
+                    setActiveIndex(0);
+                    setIsOpen(false);
+                }}
+            >
+                RoniDev
             </a>
-            </li>
-        ))}
-        </ul>
-    </nav>
+
+            <ul className={`${styles.menu} ${isOpen ? styles.open : ''}`}>
+                {menuItems.map((item, index) => (
+                    <li key={index}>
+                        <a
+                            href={item.link}
+                            className={activeIndex === index ? styles.active : null}
+                            onClick={() => {
+                                setActiveIndex(index);
+                                setIsOpen(false);
+                            }}
+                        >
+                            {item.name}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </nav>
     );
 }
+
 export default Navbar;

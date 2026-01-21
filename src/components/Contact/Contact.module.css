@@ -1,6 +1,7 @@
 .contactSection {
     padding: 80px 20px;
     min-height: 80vh;
+    
 }
 .contactSection h1 {
     text-align: center;
@@ -123,7 +124,58 @@
   transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
-  
+/* =========================================
+   RESPONSIVE DESIGN (Móviles y Tablets)
+   ========================================= */
+@media (max-width: 900px) {
+    
+    .contactSection {
+        padding: 40px 20px; /* Reducimos altura de la sección */
+    }
+
+    .contactSection h1 {
+        font-size: 2.5rem;
+    }
+
+    /* 1. Ajustar el Wrapper */
+    .contactWrapper {
+        padding: 0 1rem; /* Quitamos el padding grueso lateral (era 4rem) */
+    }
+
+    /* 2. Ajustar el Contenedor Gris */
+    .contactContainer {
+        padding: 1.5rem; /* Menos relleno interno (era 3rem) */
+        gap: 1rem;
+        
+        /* En móvil forzamos 1 sola columna para que ocupen todo el ancho
+           y se vean como botones grandes y fáciles de tocar */
+        grid-template-columns: 1fr; 
+    }
+
+    /* 3. Ajustar tamaño de Iconos */
+    /* 64px puede ser muy grande en pantallas pequeñas, lo bajamos un poco */
+    .icon {
+        width: 50px;
+        height: 50px;
+        padding: 12px;
+    }
+
+    /* 4. Ajustar textos de las tarjetas */
+    .contactLink {
+        gap: 15px; /* Menos espacio entre icono y texto */
+        padding: 12px; /* Tarjeta un poco más compacta */
+    }
+
+    .contactLink p {
+        font-size: 1rem; /* Ajuste leve de fuente */
+    }
+
+    /* 5. Ajustar el Slogan final */
+    .contactSlogan {
+        margin-top: 1.5rem;
+        font-size: 0.9rem;
+    }
+}
 
 
 

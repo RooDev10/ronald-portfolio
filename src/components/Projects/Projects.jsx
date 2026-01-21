@@ -30,7 +30,7 @@ function Projects() {
   }, []);
 
   return (
-        <section id="Projects" className={styles.projectsSection}>
+        <section className={styles.projectsSection} id="Projects">
             <h1>Mis proyectos</h1>
             <p className={styles.projectsDescription}>Una colección de mis trabajos 
                 recientes en desarrollo de software, diseño web y soluciones creativas.</p>

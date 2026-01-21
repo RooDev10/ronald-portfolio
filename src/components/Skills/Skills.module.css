@@ -132,3 +132,51 @@
 }
 
 
+/* =========================================
+   RESPONSIVE DESIGN (Móviles y Tablets)
+   ========================================= */
+@media (max-width: 900px) {
+    
+    .skillsSection {
+        padding: 50px 15px; /* Menos espacio vertical */
+    }
+
+    .skillsSection h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    /* 1. Ajuste del Wrapper */
+    .skillsWrapper {
+        gap: 20px; /* Reducimos el espacio entre tarjetas */
+        padding: 0 10px;
+    }
+
+    /* 2. Ajuste de la Tarjeta */
+    .skillCard {
+        /* Cambiamos el ancho fijo. 
+           En móvil queremos que sea flexible pero con un límite */
+        width: 100%; 
+        max-width: 340px; /* Un poco más ancha que en PC para llenar la pantalla del cel */
+        padding: 25px; /* Un poco menos de padding interno */
+    }
+    
+    /* 3. Grid interno (Iconos de tecnologías) */
+    .skillsGrid {
+        /* Mantenemos 3 columnas, pero reducimos el espacio */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    /* 4. Ajuste de textos en los items */
+    .skillsGrid li {
+        font-size: 0.7rem; /* Texto un poco más pequeño para que quepa */
+        padding: 8px 4px;
+    }
+
+    /* Aseguramos que textos largos no rompan el diseño */
+    .skillsGrid li span {
+        text-align: center;
+        word-break: break-word; 
+    }
+}

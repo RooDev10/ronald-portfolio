@@ -114,3 +114,60 @@
   transform: translateY(0);
 }
 
+/* =========================================
+   RESPONSIVE DESIGN (Móviles y Tablets)
+   ========================================= */
+@media (max-width: 900px) {
+    
+    .projectsSection {
+        padding: 40px 20px;
+    }
+
+    .projectsSection h1 {
+        font-size: 2.5rem;
+    }
+
+    .projectsSection .projectsDescription {
+        font-size: 1rem;
+    }
+
+    .projectsWrapper {
+        padding: 0 1rem; /* Quitamos el padding grueso de los lados */
+    }
+
+    /* 1. LA TARJETA EN COLUMNA */
+    .projectCard {
+        flex-direction: column; /* Pone la foto arriba y texto abajo */
+        gap: 2rem; 
+        padding: 2rem 1.5rem; /* Ajustamos un poco el relleno interno */
+    }
+
+    /* 2. ANULAR EL EFECTO REVERSE (CRÍTICO) */
+    /* Usamos !important para asegurar que en móvil la foto SIEMPRE vaya primero */
+    .reverse {
+        flex-direction: column !important;
+    }
+
+    /* 3. ELEMENTOS AL 100% DE ANCHO */
+    .projectImage,
+    .projectContent {
+        width: 100%;
+        flex: none; /* Desactivamos el flex: 1.2 y 1.8 de escritorio */
+    }
+
+    /* 4. ALINEACIÓN CENTRADA */
+    .projectContent {
+        text-align: center; /* Se ve más ordenado en móvil */
+    }
+
+    /* Centramos los tags (tecnologías) */
+    .tags {
+        justify-content: center;
+        flex-wrap: wrap; /* Si hay muchos tags, que bajen a la siguiente línea */
+    }
+
+    /* Centramos los botones */
+    .projectLinks {
+        justify-content: center;
+    }
+}
