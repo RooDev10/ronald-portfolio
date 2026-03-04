@@ -49,7 +49,7 @@ function Contact() {
                         <SiGmail className={styles.icon} />
                         <div>
                             <span>Gmail</span>
-                            <p>ronald.rk15@gmail.com</p>
+                            <p>ronald.peraltac29</p>
                         </div>
                     </a>
 

@@ -24,7 +24,7 @@ function Skills() {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.2 } // Se activa cuando el 20% de la sección es visible
+      { threshold: 0.2 } 
     );
 
     if (sectionRef.current) {
@@ -82,7 +82,6 @@ function Skills() {
             className={styles.skillCard}
             onClick={() => handleCardClick(skill.id_skill)}
             style={{ 
-                /* El retraso solo se aplica cuando la sección es visible */
                 animationDelay: isVisible ? `${index * 0.12}s` : "0s" 
             }}
           >

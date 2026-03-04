@@ -19,9 +19,6 @@
     margin: 0 auto;
 }
 
-/* ===============================
-   ESTILO CARD (Premium & Elegante)
-================================ */
 
 .skillCard {
     width: 280px;
@@ -61,9 +58,6 @@
     }
 }
 
-/* ===============================
-   CONTENIDO Y GRID
-================================ */
 
 .cardContent h3 {
     font-size: 1.35rem;
@@ -81,7 +75,7 @@
     margin-top: 15px;
 }
 
-/* Estado ABIERTO - Más sutil */
+
 .skillCard:has(.cardDetails) {
     background: linear-gradient(145deg, #1d3449 0%, #295277 100%);
     border-color: rgba(16, 201, 243, 0.25);
@@ -131,14 +125,10 @@
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.12);
 }
 
-
-/* =========================================
-   RESPONSIVE DESIGN (Móviles y Tablets)
-   ========================================= */
 @media (max-width: 900px) {
     
     .skillsSection {
-        padding: 50px 15px; /* Menos espacio vertical */
+        padding: 50px 15px;
     }
 
     .skillsSection h1 {
@@ -146,35 +136,29 @@
         margin-bottom: 2.5rem;
     }
 
-    /* 1. Ajuste del Wrapper */
     .skillsWrapper {
-        gap: 20px; /* Reducimos el espacio entre tarjetas */
+        gap: 20px; 
         padding: 0 10px;
     }
-
-    /* 2. Ajuste de la Tarjeta */
+   
     .skillCard {
-        /* Cambiamos el ancho fijo. 
-           En móvil queremos que sea flexible pero con un límite */
+        
         width: 100%; 
-        max-width: 340px; /* Un poco más ancha que en PC para llenar la pantalla del cel */
-        padding: 25px; /* Un poco menos de padding interno */
+        max-width: 340px; 
+        padding: 25px; 
     }
     
-    /* 3. Grid interno (Iconos de tecnologías) */
     .skillsGrid {
-        /* Mantenemos 3 columnas, pero reducimos el espacio */
+        
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
     }
     
-    /* 4. Ajuste de textos en los items */
     .skillsGrid li {
-        font-size: 0.7rem; /* Texto un poco más pequeño para que quepa */
+        font-size: 0.7rem; 
         padding: 8px 4px;
     }
 
-    /* Aseguramos que textos largos no rompan el diseño */
     .skillsGrid li span {
         text-align: center;
         word-break: break-word; 

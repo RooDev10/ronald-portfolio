@@ -1,7 +1,8 @@
 .heroSection {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 350px; 
     padding: 80px 20px;
     position: relative;
     height: 100vh;
@@ -187,7 +188,7 @@
     }
 }
 
-/* ========== RESPONSIVE PARA MOBILE ========== */
+
 @media screen and (max-width: 768px) {
     .heroSection {
         flex-direction: column;
@@ -212,9 +213,9 @@
     }
 
     .profileImage {
-        order: 1; 
-        margin-right: 0; 
-        align-self: center; 
+        order: 1;
+        margin-right: 0;
+        align-self: center;
         
     }
 
@@ -232,7 +233,7 @@
     }
 
     .heroHeader {
-        order: 2; /* ← Aparece después de la imagen */
+        order: 2; 
         margin-left: 0;
         text-align: left; 
         padding-left: 1rem; 
