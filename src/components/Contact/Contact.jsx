@@ -9,13 +9,13 @@ function Contact() {
     const { ref: sectionRef, isInView: isVisible } = useInView({ threshold: 0.3 });
 
     return (
-        <section className={`${styles.contactSection} ${isVisible ? styles.visible : styles.hidden}`} id="Contacto" ref={sectionRef}>
+        <section className={styles.contactSection} id="Contacto" ref={sectionRef}>
             <h1>Contactame</h1>
             <p className={styles.contactDescription}>Abierto a colaborar en iniciativas innovadoras 
                 que transforman ideas ambiciosas en resultados excepcionales.</p>
   
 
-            <div className={styles.contactWrapper}>
+            <div className={`${styles.contactWrapper} ${isVisible ? styles.visible : styles.hidden}`}>
                 <div className={styles.contactContainer}>
                     <h3>Hablemos!</h3>  
 
