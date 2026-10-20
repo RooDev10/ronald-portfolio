@@ -8,7 +8,7 @@ import {
 import {
   SiTailwindcss, SiFirebase, SiMongodb, SiMysql, SiFlutter, SiFigma,
   SiJetpackcompose, SiTypescript, SiFastapi, SiDotnet, SiDart, SiKotlin,
-  SiSwagger, SiPostman, SiVitest,
+  SiSwagger, SiPostman, SiVitest, SiCypress, SiJenkins, SiRedis,
 } from "react-icons/si";
 
 // lowContrast: íconos oscuros que necesitan un halo claro sobre el fondo de la tarjeta
@@ -29,12 +29,15 @@ const techIcons = {
   SQLServer: { Icon: FaDatabase, color: "#CC2927" },
   MySQL: { Icon: SiMysql, color: "#4479A1", lowContrast: true },
   MongoDB: { Icon: SiMongodb, color: "#47A248" },
+  Redis: { Icon: SiRedis, color: "#DC382D" },
   Dart: { Icon: SiDart, color: "#0175C2" },
   Kotlin: { Icon: SiKotlin, color: "#7F52FF" },
   Flutter: { Icon: SiFlutter, color: "#02569B" },
   "Jetpack Compose": { Icon: SiJetpackcompose, color: "#4285F4" },
   Linux: { Icon: FaLinux, color: "#070437", lowContrast: true },
   Docker: { Icon: FaDocker, color: "#2496ED" },
+  Cypress: { Icon: SiCypress, color: "#17202C", lowContrast: true },
+  Jenkins: { Icon: SiJenkins, color: "#D24939" },
   Git: { Icon: FaGitAlt, color: "#F05032" },
   GitHub: { Icon: FaGithub, color: "#ffffff", lowContrast: true },
   Figma: { Icon: SiFigma, color: "#F24E1E" },

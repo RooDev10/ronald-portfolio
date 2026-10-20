@@ -14,7 +14,7 @@ const skills = [
         id_skill: 3,
         category: "Databases",
         accent: "#22c55e",
-        skills_list: ["SQLServer", "MySQL", "MongoDB"]
+        skills_list: ["SQLServer", "MySQL", "MongoDB", "Redis"]
     },
     {
         id_skill: 4,
@@ -26,13 +26,13 @@ const skills = [
         id_skill: 5,
         category: "DevOps & Tools",
         accent: "#a855f7",
-        skills_list: ["Linux", "Docker", "Git", "GitHub", "Figma", "Firebase"]
+        skills_list: ["Linux", "Docker", "Git", "Jenkins", "Firebase", "Postman"]
     },
     {
         id_skill: 6,
         category: "Architecture & QA",
         accent: "#facc15",
-        skills_list: ["Clean Architecture", "SOLID", "REST APIs", "Swagger", "Postman", "Vitest"]
+        skills_list: ["Clean Architecture", "SOLID", "REST APIs", "Cypress"]
     }
 ]
 
