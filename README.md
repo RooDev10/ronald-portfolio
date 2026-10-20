@@ -15,13 +15,13 @@
 
 ---
 
-## 📌 Acerca del proyecto
+## Acerca del proyecto
 
 RoniDev es una landing page de una sola vista que presenta mi perfil, habilidades, proyectos y medios de contacto. Está construida con React y Vite, es responsiva y tiene animaciones de aparición al hacer scroll.
 
 El contenido vive separado de los componentes, así que actualizar información (proyectos, habilidades, enlaces) no requiere tocar la interfaz.
 
-## ✨ Características
+## Características
 
 - **Inicio** con montañas en capas, tarjeta de perfil y botones de contacto y CV.
 - **Navbar fija** que resalta la sección activa, con menú hamburguesa en móvil.
@@ -33,7 +33,7 @@ El contenido vive separado de los componentes, así que actualizar información 
 - **Diseño responsivo** para móvil, tablet y escritorio.
 - **SEO y redes sociales**: meta description, Open Graph y Twitter Cards.
 
-## 🧰 Tecnologías
+## Tecnologías
 
 | Área | Tecnología |
 |---|---|
@@ -47,7 +47,7 @@ El contenido vive separado de los componentes, así que actualizar información 
 | Integración continua | GitHub Actions |
 | Hosting | Firebase Hosting |
 
-## 🗂️ Estructura del proyecto
+## Estructura del proyecto
 
 ```
 ronald-portfolio/
@@ -85,28 +85,7 @@ ronald-portfolio/
 - **Sin secretos en el cliente.** Todo lo que usa una app de frontend es público. El `.env` solo guarda configuración del entorno, nunca claves.
 - **Calidad automatizada.** Cada push corre lint, pruebas y build en GitHub Actions.
 
-## ▶️ Ejecutar en local
-
-Requisitos: Node.js 20.19+ o 22.12+ y pnpm.
-
-```bash
-git clone https://github.com/RooDev10/ronald-portfolio.git
-cd ronald-portfolio
-pnpm install
-pnpm dev
-```
-
-Luego abre [http://localhost:5173](http://localhost:5173).
-
-| Comando | Qué hace |
-|---|---|
-| `pnpm dev` | Servidor de desarrollo |
-| `pnpm build` | Build de producción en `dist/` |
-| `pnpm preview` | Previsualiza el build |
-| `pnpm lint` | Revisa el código con ESLint |
-| `pnpm test` | Ejecuta las pruebas |
-
-## ☁️ Despliegue en Firebase Hosting
+## Despliegue en Firebase Hosting
 
 El sitio se publica en Firebase Hosting a partir de la carpeta `dist/`.
 
@@ -135,7 +114,3 @@ firebase deploy --only hosting
 ```
 
 > Antes de desplegar conviene correr `pnpm lint && pnpm test` para no publicar errores.
-
-## 📄 Licencia
-
-Uso personal. Todos los derechos reservados a Ronald Peralta.
