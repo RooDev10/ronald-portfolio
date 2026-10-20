@@ -1,12 +1,12 @@
 import profile from '../../data/profile.js';
 import styles from './About.module.css';
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
+import useInView from '../../hooks/useInView.js';
 
 
 function About() {
     const [rotation, setRotation] = useState({ x: 0, y: 0 });
-    const [isVisible, setIsVisible] = useState(false);
-    const sectionRef = useRef(null);
+    const { ref: sectionRef, isInView: isVisible } = useInView({ threshold: 0.3 });
 
     const handleMouseMove = (event) => {
         const card = event.currentTarget.getBoundingClientRect();
@@ -27,23 +27,6 @@ function About() {
         setRotation({ x: 0, y: 0 });
     };
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-        ([entry]) => {
-            setIsVisible(entry.isIntersecting);
-        },
-        {
-            threshold: 0.3
-        }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
-
     return (
         <section className={styles.aboutSection} id="About" ref={sectionRef}>
             <h1>Sobre mí</h1>
@@ -57,7 +40,7 @@ function About() {
                     >
                         <img
                             src={profile.profile_photo}
-                            alt="photo image"
+                            alt="Ronald Peralta, estudiante de Ingeniería de Software"
                             onMouseMove={handleMouseMove}
                             onMouseLeave={handleMouseLeave}
                             style={{
@@ -65,6 +48,7 @@ function About() {
                                 transition: 'transform 0.1s ease'
                             }}
                         />
+                        <figcaption className="sr-only">Ronald Peralta en su día a día como desarrollador</figcaption>
                     </figure>
 
                     <div

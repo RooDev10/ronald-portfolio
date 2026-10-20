@@ -81,7 +81,7 @@
     transform: translateY(-70px);
 }
 
-.socialLinks a:hover i {
+.socialLinks a:hover svg {
     animation: iconCrazy 0.5s linear infinite;
 }
 

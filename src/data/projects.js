@@ -1,15 +1,13 @@
-import project1 from "../assets/project1.jpg";
-import project2 from "../assets/project2.jpg";
-import project3 from "../assets/project3.jpg";
+import project1 from "../assets/project1.webp"
 
 const projects = [
     {
         id_project: 1,
-        title: "Project One",
+        title: "JobOffersAPI",
         image: project1,    
-        description: "TaskMaster Pro es una herramienta de gestión de tareas que ayuda a equipos e individuos a organizar y priorizar proyectos de manera eficiente. Con una interfaz intuitiva, puedes crear, asignar y seguir tareas fácilmente. Además, se integra con herramientas populares como Slack, Google Calendar y Trello para centralizar todo tu trabajo.",
-        technologies: ["React", "Firebase", "Tailwind CSS"],
-        githubUrl: "https://github.com/tu-usuario/repo", 
+        description: "JobOffers API es un backend desarrollado con .NET que busca explorar cómo diseñar, contenerizar y desplegar una aplicación siguiendo buenas prácticas reales. Más que ofrecer operaciones CRUD, se centra en la arquitectura, infraestructura y despliegue, utilizando Entity Framework Core con PostgreSQL, Docker y Docker Compose, y redes privadas con Tailscale para conectar de forma segura con un servidor propio bajo mi control, adentrándose así en prácticas modernas de backend y en la cultura DevOps.",
+        technologies: ["C#", ".NET", "Tailscale", "Docker", "Linux"],
+        githubUrl: "https://github.com/RooDev10/job-offers-api-test-docker.git", 
         demoUrl: "https://tudominio.com/app"           
     },
     

@@ -2,29 +2,11 @@ import styles from './Contact.module.css';
 import profile from '../../data/profile.js';
 import { FaWhatsapp  } from "react-icons/fa";
 import {SiGmail, SiDiscord } from "react-icons/si";
-import { useEffect, useRef, useState } from 'react';
+import useInView from '../../hooks/useInView.js';
 
 function Contact() {
 
-    const [isVisible, setIsVisible] = useState(false);
-    const sectionRef = useRef(null);
-
-    useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      {
-        threshold: 0.3
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-    }, []);
+    const { ref: sectionRef, isInView: isVisible } = useInView({ threshold: 0.3 });
 
     return (
         <section className={`${styles.contactSection} ${isVisible ? styles.visible : styles.hidden}`} id="Contacto" ref={sectionRef}>
@@ -41,15 +23,15 @@ function Contact() {
                         <FaWhatsapp className={styles.icon} />
                         <div>
                             <span>WhatsApp</span>
-                            <p>+51 953 091 144</p>
+                            <p>{profile.phone_display}</p>
                         </div>
                     </a>
 
-                    <a href={profile.email_url} target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
+                    <a href={profile.email_url} className={styles.contactLink}>
                         <SiGmail className={styles.icon} />
                         <div>
                             <span>Gmail</span>
-                            <p>ronald.peraltac29</p>
+                            <p>{profile.email}</p>
                         </div>
                     </a>
 
@@ -57,7 +39,7 @@ function Contact() {
                         <SiDiscord className={styles.icon} />
                         <div>
                             <span>Discord</span>
-                            <p>☆Ronald☆</p>
+                            <p>{profile.discord_user}</p>
                         </div>
                     </a>
 

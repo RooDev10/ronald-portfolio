@@ -1,4 +1,5 @@
 import styles from './Navbar.module.css';
+import { FaBars } from 'react-icons/fa';
 import { useState, useEffect } from "react";
 
 function Navbar() {
@@ -44,13 +45,16 @@ function Navbar() {
     }, []);
 
     return (
-        <nav className={styles.navbar}>
+        <nav className={styles.navbar} aria-label="Navegación principal">
 
             <button
                 className={styles.hamburger}
+                aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+                aria-expanded={isOpen}
+                aria-controls="navbar-menu"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                ☰
+                <FaBars />
             </button>
 
             <a
@@ -64,11 +68,15 @@ function Navbar() {
                 RoniDev
             </a>
 
-            <ul className={`${styles.menu} ${isOpen ? styles.open : ''}`}>
+            <ul
+                id="navbar-menu"
+                className={`${styles.menu} ${isOpen ? styles.open : ''}`}
+            >
                 {menuItems.map((item, index) => (
-                    <li key={index}>
+                    <li key={item.link}>
                         <a
                             href={item.link}
+                            aria-current={activeIndex === index ? 'true' : undefined}
                             className={activeIndex === index ? styles.active : null}
                             onClick={() => {
                                 setActiveIndex(index);

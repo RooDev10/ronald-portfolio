@@ -1,34 +1,14 @@
 import styles from './Hero.module.css';
 import profile from '../../data/profile.js';
 import PrimaryButton from '../UI/Button/PrimaryButton.jsx';
-import Navbar from '../Navbar/Navbar.jsx';
-import { useEffect, useRef, useState } from 'react';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import useInView from '../../hooks/useInView.js';
 
 function Hero() {
-    const [isVisible, setIsVisible] = useState(false);
-    const heroRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setIsVisible(entry.isIntersecting);
-            },
-            {
-                threshold: 0.4
-            }
-        );
-
-        if (heroRef.current) {
-            observer.observe(heroRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
+    const { ref: heroRef, isInView: isVisible } = useInView({ threshold: 0.4 });
 
     return (
         <section className={styles.heroSection} id="Home" ref={heroRef}>
-
-            <Navbar />
 
             <div className={`${styles.mountain} ${styles.mountainBack}`}></div>
             <div className={`${styles.mountain} ${styles.mountainMid}`}></div>
@@ -53,12 +33,13 @@ function Hero() {
                     isVisible ? styles.heroShowImage : styles.heroHiddenImage
                 }`}
             >
-                <img src={profile.image_profile} alt="profile image" />
+                <img src={profile.image_profile} alt="Ronald Peralta, desarrollador de software" />
                 <div className={styles.socialLinks}>
-                    <a href={profile.git_url}><i class="fab fa-github"></i></a>
-                    <a href={profile.linkedin_url}><i class="fab fa-linkedin"></i></a>
-                    <a href={profile.ig_url}><i class="fab fa-instagram"></i></a>
+                    <a href={profile.git_url} target="_blank" rel="noopener noreferrer" aria-label="GitHub de Ronald Peralta"><FaGithub /></a>
+                    <a href={profile.linkedin_url} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Ronald Peralta"><FaLinkedin /></a>
+                    <a href={profile.ig_url} target="_blank" rel="noopener noreferrer" aria-label="Instagram de Ronald Peralta"><FaInstagram /></a>
                 </div>
+                <figcaption className="sr-only">Ronald Peralta, desarrollador de software</figcaption>
             </figure>
         
         </section>

@@ -1,6 +1,7 @@
 import styles from "./Skills.module.css";
 import skills from "../../data/skill";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+import useInView from "../../hooks/useInView.js";
 import { IoLogoJavascript } from "react-icons/io";
 import {
   FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGitAlt, FaGithub,
@@ -15,24 +16,14 @@ import {
 
 function Skills() {
   const [selectedId, setSelectedId] = useState(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
+  const { ref: sectionRef, isInView: isVisible } = useInView({ threshold: 0.2 });
+  const [wasVisible, setWasVisible] = useState(isVisible);
 
-  // Lógica para disparar la animación al entrar a la sección
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.2 } 
-    );
+  if (isVisible !== wasVisible) {
+    setWasVisible(isVisible);
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+    if (!isVisible) setSelectedId(null);
+  }
 
   const handleCardClick = (id) => {
     setSelectedId(selectedId === id ? null : id);
