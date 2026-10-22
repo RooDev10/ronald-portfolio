@@ -1,10 +1,7 @@
 import profileImage from "../assets/avatarPNG.webp";
-import profilePhoto from "../assets/photo.webp";
 
-// Datos de contacto públicos: se muestran en la web, no son secretos.
-// Se definen una sola vez y las URLs se construyen a partir de ellos.
 const phone = "51953091144";
-const email = "ronald.peraltac29@gmail.com";
+const email = "ronald.peraltac29@";
 const discordUserId = "757391452413231154";
 
 const whatsappMessage = "Hola!! Te escribo desde tu web porque tengo un proyecto en mente y me gustaría conversar contigo. ¡Gracias!";
@@ -16,9 +13,7 @@ const profile = {
     age: 22,
     rol: "Estudiante - Ingeniería de Software",
     image_profile: profileImage,
-    profile_photo: profilePhoto,
     description: "Desarrollador de software apasionado, enfocado en soluciones escalables, ciclo de vida y automatizaciones",
-    bio: "Soy estudiante de Ingeniería de Software, disciplinado y enfocado en crear soluciones innovadoras y bien estructuradas. Trabajo con tecnologías como .NET, React, Vue y Flutter para desarrollar aplicaciones web y móviles escalables, cuidando la arquitectura y la mantenibilidad. Aplico principios de diseño y buenas prácticas para construir soluciones robustas, pensadas para evolucionar con el tiempo. Complemento el desarrollo con prácticas DevOps, utilizando Docker para contenerizar aplicaciones y facilitar despliegues confiables. Me interesan la inteligencia artificial y el aprendizaje automático, y busco mejorar constantemente para afrontar los retos actuales del desarrollo de software.",
     location: "Lima - Peru",
     phone_display: "+51 953 091 144",
     email,

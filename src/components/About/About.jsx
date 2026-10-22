@@ -1,63 +1,78 @@
-import profile from '../../data/profile.js';
+import about from '../../data/about.js';
 import styles from './About.module.css';
 import { useState } from "react";
 import useInView from '../../hooks/useInView.js';
 
-
 function About() {
-    const [rotation, setRotation] = useState({ x: 0, y: 0 });
+    const [order, setOrder] = useState(() => about.photos.map((_, index) => index));
     const { ref: sectionRef, isInView: isVisible } = useInView({ threshold: 0.3 });
 
-    const handleMouseMove = (event) => {
-        const card = event.currentTarget.getBoundingClientRect();
+    const activePhoto = about.photos[order[0]];
 
-        const centerX = card.left + card.width / 2;
-        const centerY = card.top + card.height / 2;
-
-        const mouseX = event.clientX - centerX;
-        const mouseY = event.clientY - centerY;
-
-        const rotateX = (mouseY / (card.height / 2)) * -15;
-        const rotateY = (mouseX / (card.width / 2)) * 15;
-
-        setRotation({ x: rotateX, y: rotateY });
-    };
-
-    const handleMouseLeave = () => {
-        setRotation({ x: 0, y: 0 });
+    // La foto del frente pasa al final de la pila
+    const showNextPhoto = () => {
+        setOrder(([first, ...rest]) => [...rest, first]);
     };
 
     return (
-        <section className={styles.aboutSection} id="About" ref={sectionRef}>
+        <section
+            className={`${styles.aboutSection} ${isVisible ? styles.animate : ""}`}
+            id="About"
+            ref={sectionRef}
+        >
             <h1>Sobre mí</h1>
 
             <div className={styles.aboutWrapper}>
-                <div className={styles.aboutContainer}>
-                    <figure
-                        className={`${styles.figureabout} ${
-                            isVisible ? styles.showLeft : styles.hiddenLeft
-                        }`}
+                <div className={styles.deckColumn}>
+                    <button
+                        type="button"
+                        className={styles.deck}
+                        onClick={showNextPhoto}
+                        aria-label={`Foto ${order[0] + 1} de ${about.photos.length}: ${activePhoto.title}. Ver siguiente foto`}
                     >
-                        <img
-                            src={profile.profile_photo}
-                            alt="Ronald Peralta, estudiante de Ingeniería de Software"
-                            onMouseMove={handleMouseMove}
-                            onMouseLeave={handleMouseLeave}
-                            style={{
-                                transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
-                                transition: 'transform 0.1s ease'
-                            }}
-                        />
-                        <figcaption className="sr-only">Ronald Peralta en su día a día como desarrollador</figcaption>
-                    </figure>
+                        {about.photos.map((photo, index) => {
+                            const position = Math.min(order.indexOf(index), 3);
 
-                    <div
-                        className={`${styles.aboutDescription} ${
-                            isVisible ? styles.showRight : styles.hiddenRight
-                        }`}
-                    >
-                        <p>{profile.bio}</p>
+                            return (
+                                <span key={photo.id} className={`${styles.photoCard} ${styles[`pos${position}`]}`}>
+                                    <img src={photo.src} alt={position === 0 ? photo.alt : ""} draggable="false" />
+                                </span>
+                            );
+                        })}
+
+                        <span className={styles.photoBadge} aria-hidden="true">
+                            <span className={styles.photoTitle}>{activePhoto.title}</span>
+                            <span className={styles.photoCounter}>
+                                {order[0] + 1} / {about.photos.length} • Clic para cambiar
+                            </span>
+                        </span>
+                    </button>
+                </div>
+
+                <div className={styles.contentColumn}>
+                    <span className={styles.topBadge}>{about.badge}</span>
+
+                    <div className={styles.descriptionBox}>
+                        {about.paragraphs.map((paragraph) => (
+                            <p key={paragraph} className={styles.paragraph}>{paragraph}</p>
+                        ))}
                     </div>
+
+                    <ul className={styles.pillars}>
+                        {about.pillars.map((pillar, index) => {
+                            const { Icon } = pillar;
+
+                            return (
+                                <li key={pillar.id} className={styles.pillarItem} style={{ "--delay": `${0.35 + index * 0.12}s` }}>
+                                    <article className={styles.pillarCard}>
+                                        <Icon aria-hidden="true" className={styles.pillarIcon} />
+                                        <h3>{pillar.title}</h3>
+                                        <p>{pillar.text}</p>
+                                    </article>
+                                </li>
+                            );
+                        })}
+                    </ul>
                 </div>
             </div>
         </section>
